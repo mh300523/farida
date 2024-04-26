@@ -1,0 +1,19 @@
+
+@font-face {
+  font-family: 'Prima Sans';
+  src: url('../webfonts/fonts-file/PrimaSansBT-Roman.woff2') format('woff2'),
+      url('../webfonts/fonts-file/PrimaSansBT-Roman.woff') format('woff'),
+      url('../webfonts/fonts-file/PrimaSansBT-Roman.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Prima Sans';
+  src: url('../webfonts/fonts-file/PrimaSansBT-Bold.woff2') format('woff2'),
+      url('../webfonts/fonts-file/PrimaSansBT-Bold.woff') format('woff'),
+      url('../webfonts/fonts-file/PrimaSansBT-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
