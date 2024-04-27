@@ -1,16 +1,7 @@
-function initMap() {
-  var lat = $("#map").data("lat");
-  var lng = $("#map").data("lng");
-  const myLatlng = { lat: lat, lng: lng };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 17,
-    center: myLatlng,
-    draggable: true,
-  });
-}
-
 (function ($) {
     $(document).ready(function() {
+
+
 
               ///////// **mobile size** /////////
       $('#navbtn').click(function () {
@@ -88,6 +79,11 @@ function initMap() {
                   spaceBetween: 30,
               },
           },
+          on: {
+            init: function (swiper) {
+              lazyLoad();
+            },
+          },
         });
 
         ///////// ** Customer Opinions Slider** /////////
@@ -123,6 +119,11 @@ function initMap() {
                   slidesPerView: 3,
                   spaceBetween: 20,
               },
+          },
+          on: {
+            init: function (swiper) {
+              lazyLoad();
+            },
           },
         });
 
@@ -160,8 +161,41 @@ function initMap() {
                   spaceBetween: 20,
               },
           },
+          on: {
+            init: function (swiper) {
+              lazyLoad();
+            },
+          },
         });
+
+          //////////** fixed arrow to top**//////////
+          $(".arrow-top").click(function () {
+            $("html").css("scroll-behavior", "unset");
+
+            $("html,body").animate(
+              {
+                scrollTop: 0,
+              },
+              1000,
+              "swing"
+            );
+            setTimeout(() => {
+              $("html").css("scroll-behavior", "smooth");
+            }, 1000);
+          });
+          $(this).scrollTop() >= 500
+            ? $(".arrow-top").fadeIn(300)
+            : $(".arrow-top").fadeOut(300);
+
+          $(window).scroll(function () {
+            $(this).scrollTop() >= 500
+              ? $(".arrow-top").fadeIn(300)
+              : $(".arrow-top").fadeOut(300);
+          });
+        
+        lazyLoad()
     });
+
 
     /**********lazy load ***********/
     function lazyLoad() {
@@ -196,5 +230,18 @@ function initMap() {
           // img.parentElement.parentElement.classList.add("lazy-head-img");
         };
       }
+
 })(jQuery)
+
+
+function initMap() {
+  var lat = $("#map").data("lat");
+  var lng = $("#map").data("lng");
+  const myLatlng = { lat: lat, lng: lng };
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 17,
+    center: myLatlng,
+    draggable: true,
+  });
+}
 
